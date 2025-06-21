@@ -1,121 +1,240 @@
 <template>
-    <section class="home">
-        <h2>Hi, I'm <span class="highlight">Amirah Azman</span></h2>
-        <p class="role">Frontend Developer with Full-Stack Awareness</p>
+  <div class="resume">
+    <header class="header">
+      <h1>{{ name }}</h1>
+      <p class="title">{{ title }}</p>
+      <p class="location">{{ location }}</p>
+      <p class="contact">{{ phone }} | {{ email }}</p>
+    </header>
 
-        <p class="summary">
-            I specialize in building modern, responsive web interfaces with
-            <strong>Vue.js</strong>, <strong>JavaScript</strong>, <strong>HTML5</strong>, and <strong>CSS3</strong>.
-            I translate UI/UX designs from tools like <strong>Figma</strong> into clean, interactive dashboards, often
-            within
-            <strong>CRM-style applications</strong> similar to WordPress workflows.
-        </p>
-
-        <p class="summary">
-            On the backend, I have experience creating lightweight APIs and basic CRUD systems using
-            <strong>Go (Golang)</strong> and <strong>PostgreSQL</strong>, integrating them seamlessly into the frontend.
-        </p>
-
-        <div class="skills">
-            <h3>Key Strengths</h3>
-            <ul>
-                <li>⚡ Responsive UI development with Vue.js</li>
-                <li>🎯 UI/UX implementation from Figma to code</li>
-                <li>🔧 CRUD operations with Go + PostgreSQL</li>
-                <li>🔍 Debugging with browser tools & Postman</li>
-                <li>📦 Containerization using Docker & Kubernetes (basic)</li>
-                <li>🚀 Deployments on cloud/VPS with CI/CD pipelines</li>
-                <li>🧠 Git version control via GitHub & GitLab</li>
-            </ul>
-        </div>
-
-        <!-- ✅ NEW: Agile & Collaboration Section -->
-        <div class="workflow">
-            <h3>Workflow & Collaboration</h3>
-            <ul>
-                <li>🔄 Experienced in Agile/Scrum teams with daily standups and sprint planning</li>
-                <li>📋 Skilled in breaking down features and delivering incremental improvements</li>
-                <li>✅ Regularly contribute to retrospectives and sprint reviews</li>
-                <li>🧪 Prepare and manage UAT documentation in collaboration with QA teams</li>
-                <li>🤝 Ensure features align with business goals before release</li>
-            </ul>
-        </div>
-
-        <div class="actions">
-            <a href="mailto:you@example.com" class="btn">Contact Me</a>
-            <a href="../assets/pdf/Amirah Azman - Software Engineer - Resume.pdf" class="btn outline" target="_blank">Download Resume</a>
-        </div>
+    <section class="summary">
+      <h2>Professional Summary</h2>
+      <p>{{ summary }}</p>
     </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <div v-for="(group, index) in skills" :key="index" class="skill-group">
+        <h3>{{ group.category }}</h3>
+        <ul>
+          <li v-for="skill in group.items" :key="skill">{{ skill }}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="experience">
+      <h2>Experience</h2>
+      <div v-for="(job, index) in experience" :key="index" class="job">
+        <h3>{{ job.company }} <span class="role">/ {{ job.role }}</span></h3>
+        <p class="period">{{ job.period }}</p>
+        <ul>
+          <li v-for="point in job.responsibilities" :key="point">{{ point }}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <div>
+        <h3>{{ education.institution }}</h3>
+        <p class="period">{{ education.period }}</p>
+        <p>{{ education.degree }}</p>
+      </div>
+    </section>
+  </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      name: "Amirah Azman",
+      title: "Software Engineer",
+      location: "Cyberjaya, Selangor",
+      phone: "012-5543954",
+      email: "amirahazman95@gmail.com",
+      summary:
+        "Full-stack developer with strong frontend specialization and a solid backend foundation, experienced in building responsive dashboards, real-time systems, and operational tools using Vue.js, Golang, and PostgreSQL. Proficient in containerization, API integration, Agile collaboration, and UAT processes.",
+      skills: [
+        {
+          category: "Frontend Development",
+          items: [
+            "Vue.js",
+            "JavaScript",
+            "HTML5",
+            "CSS3",
+            "Figma-to-Code translation",
+            "Responsive Dashboards",
+            "CRM-style UI",
+          ],
+        },
+        {
+          category: "Backend Development",
+          items: ["Golang", "PostgreSQL", "REST APIs", "CRUD Operations", "WebSocket Integration"],
+        },
+        {
+          category: "Debugging & Testing",
+          items: ["Postman", "Browser DevTools", "Network Debugging", "Performance Optimization"],
+        },
+        {
+          category: "DevOps & Deployment",
+          items: ["Docker", "Kubernetes", "VPS/Cloud Deployment", "Basic CI/CD", "Web Server Setup"],
+        },
+        {
+          category: "Version Control & Collaboration",
+          items: ["Git", "GitHub", "GitLab", "Branching Strategies", "Merge Requests", "Issue Tracking"],
+        },
+        {
+          category: "Documentation & QA",
+          items: ["UAT Documentation", "Stakeholder Collaboration", "QA Coordination"],
+        },
+        {
+          category: "Agile Development",
+          items: ["Scrum", "Daily Standups", "Sprint Planning", "Task Breakdown", "Incremental Delivery"],
+        },
+      ],
+      experience: [
+        {
+          company: "Vectolabs Technologies Sdn. Bhd.",
+          role: "Software Engineer",
+          period: "April 2019 – Present",
+          responsibilities: [
+            "Developed Smart Street Light System with Vue.js, Golang, PostgreSQL, and WebSocket",
+            "Built real-time dashboards for voltage, current, and energy monitoring",
+            "Created Smart Toilet Management System UI and backend services deployed on Kubernetes",
+            "Implemented Fleet Management System dashboards with video playback and panic alerts",
+            "Collaborated in Agile teams and authored UAT documentation",
+          ],
+        },
+      ],
+      education: {
+        institution: "Universiti Putra Malaysia",
+        period: "Sept 2014 – Jun 2018",
+        degree: "Bachelor of Computer Science (Major in Computer Network)",
+      },
+    };
+  },
+};
+</script>
+
 <style scoped>
-.home {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+.resume {
+  max-width: 750px;
+  margin: 2.5rem auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #2c3e50;
+  background: #fdfdfd;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  line-height: 1.55;
 }
 
-.highlight {
-    color: #3b82f6;
-    font-weight: bold;
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 1.5rem;
 }
 
-.role {
-    font-size: 1.4rem;
-    margin-top: 0.5rem;
-    color: #6b7280;
+.header h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 0.2rem;
+  color: #34495e;
 }
 
-.summary {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-top: 1rem;
-    text-align: left;
+.header .title {
+  font-weight: 600;
+  color: #7f8c8d;
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
 }
 
-.skills,
-.workflow {
-    margin-top: 2rem;
-    text-align: left;
+.header .location {
+  font-size: 1rem;
+  color: #95a5a6;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
 }
 
-.skills h3,
-.workflow h3 {
-    margin-bottom: 0.5rem;
-    color: #3b82f6;
+.header .contact {
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  letter-spacing: 0.05em;
 }
 
-.skills ul,
-.workflow ul {
-    list-style: none;
-    padding-left: 0;
+h2 {
+  font-weight: 600;
+  font-size: 1.6rem;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.25rem;
+  color: #34495e;
 }
 
-.skills li,
-.workflow li {
-    margin: 0.5rem 0;
+.skill-group {
+  margin-bottom: 1.25rem;
 }
 
-.actions {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+.skill-group h3 {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2980b9;
+  margin-bottom: 0.45rem;
 }
 
-.btn {
-    padding: 0.75rem 1.5rem;
-    background-color: #3b82f6;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
+ul {
+  padding-left: 1.4rem;
 }
 
-.btn.outline {
-    background-color: transparent;
-    border: 2px solid #3b82f6;
-    color: #3b82f6;
+li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.job {
+  margin-bottom: 2rem;
+}
+
+.job h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 0.25rem;
+}
+
+.job .role {
+  font-weight: 500;
+  color: #7f8c8d;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.job .period {
+  font-style: italic;
+  font-weight: 500;
+  color: #95a5a6;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.education h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #34495e;
+  margin-bottom: 0.3rem;
+}
+
+.education .period {
+  font-style: italic;
+  font-weight: 500;
+  color: #95a5a6;
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
 }
 </style>

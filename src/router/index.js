@@ -8,7 +8,7 @@ const routes = [
   //   component: HomeView,
   // },
    {
-    path: '/portfolio',
+    path: '/',
     name: 'Home',
     component: HomeView,
   },

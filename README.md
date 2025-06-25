@@ -1,29 +1,25 @@
-# my-project
+# My Resume
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple web app to show my resume
 
-## Recommended IDE Setup
+## Features
+- View my resume
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Tech Stack
+- Frontend: Vue.js 3, Vite
 
-## Customize configuration
+## Getting Started
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm run stage` (frontend) 
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Demo
+[Live site] https://amirahazman.github.io/portfolio/ | 
 
-## Project Setup
 
-```sh
-npm install
-```
+## Screenshots
+<!-- ![App Screenshot](screenshot.png) -->
 
-### Compile and Hot-Reload for Development
+## Author
+Amirah Azman
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```

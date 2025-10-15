@@ -1,4 +1,4 @@
-@import './base.css';
+@import "./base.css";
 
 /* #app {
   max-width: 1280px;
@@ -8,17 +8,18 @@
 } */
 
 .wrapper {
-  min-height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
-  /* background-color: #f9fafb;  */
+  background-color: #858688;
 }
 
-
-html, body, #app {
+html,
+body,
+#app {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -27,7 +28,6 @@ html, body, #app {
   flex: 1;
   width: 100%;
 }
-
 
 /* a,
 .green {

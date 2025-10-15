@@ -1,9 +1,5 @@
 <template>
-  <!-- <header>
-    <div class="wrapper">
-      <router-link></router-link>
-    </div>
-  </header> -->
+  
 
   <main>
     <div class="wrapper">
